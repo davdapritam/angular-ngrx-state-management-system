@@ -5,8 +5,8 @@ const router = express.Router();
 // Create a new user
 router.post('/users', async (req, res) => {
   try {
-    const { name, email, mobileNumber } = req.body;
-    const user = new User({ name, email, mobileNumber });
+    const { name, email } = req.body;
+    const user = new User({ name, email });
     await user.save();
     res.status(201).json({ statusCode: 201, data: user });
   } catch (error) {
@@ -38,8 +38,8 @@ router.get('/users/:id', async (req, res) => {
 // Update a user
 router.put('/users/:id', async (req, res) => {
   try {
-    const { name, email, mobileNumber } = req.body;
-    const user = await User.findByIdAndUpdate(req.params.id, { name, email, mobileNumber }, { new: true, runValidators: true });
+    const { name, email } = req.body;
+    const user = await User.findByIdAndUpdate(req.params.id, { name, email }, { new: true, runValidators: true });
     if (!user) return res.status(404).json({ statusCode: 404, error: 'User not found' });
     res.status(200).json({ statusCode: 200, data: user });
   } catch (error) {

@@ -1,0 +1,12 @@
+.user-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  gap: 10px;
+
+  .mat-mdc-form-field{
+    width: 100%;
+  }
+}

@@ -2,8 +2,11 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const userRoutes = require('./routes/user');
+const cors = require('cors');
 
 const app = express();
+app.use(cors());
+app.use(express.json());
 const PORT = 3000;
 const MONGO_URI = 'mongodb://127.0.0.1:27017/ngrx'; // Update with your MongoDB URI
 
