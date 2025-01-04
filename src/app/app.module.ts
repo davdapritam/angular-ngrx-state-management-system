@@ -22,6 +22,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { AddUpdateUserComponent } from './features/users/add-update-user/add-update-user.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { StoreModule } from '@ngrx/store';
+import {HttpService} from "./services/http-service";
 
 @NgModule({
   declarations: [
@@ -46,7 +47,7 @@ import { StoreModule } from '@ngrx/store';
     FormsModule,
     StoreModule.forRoot({}, {}),
   ],
-  providers: [],
+  providers: [HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
