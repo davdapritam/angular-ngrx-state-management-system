@@ -21,6 +21,7 @@ import { UserCardComponent } from './features/users/user-card/user-card.componen
 import {HttpClientModule} from "@angular/common/http";
 import { AddUpdateUserComponent } from './features/users/add-update-user/add-update-user.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    StoreModule.forRoot({}, {}),
   ],
   providers: [],
   bootstrap: [AppComponent]
