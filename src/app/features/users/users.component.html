@@ -1,6 +1,6 @@
 <div class="users">
-  <app-user-list [users]="users"></app-user-list>
-<!--  <mat-spinner *ngIf="this.loading"></mat-spinner>-->
+  <app-user-list *ngIf="!loading && !error" [users]="users"></app-user-list>
+  <mat-spinner *ngIf="loading"></mat-spinner>
 <!--  <youtube-error (reload)="this.tryAgain()" *ngIf="this.error && !loading"></youtube-error>-->
-  <button *ngIf="!this.loading && !this.error" (click)="addUser()" mat-raised-button color="primary">Add User</button>
+  <button (click)="addUser()" *ngIf="!loading && !error" color="primary" mat-raised-button>Add User</button>
 </div>

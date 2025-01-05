@@ -18,7 +18,8 @@ export class HttpService {
 
   post(url: string, body: any): Observable<any> {
     const headers = this.getAuthHeader();
-    return this.http.post(this.baseUrl + url, body, { headers }).pipe(catchError(this.errorHandler.bind(this)));
+    return this.http.post(this.baseUrl + url, body).pipe(catchError(this.errorHandler.bind(this)));
+    // return this.http.post(this.baseUrl + url, body, { headers }).pipe(catchError(this.errorHandler.bind(this)));
   }
 
   // PUT method

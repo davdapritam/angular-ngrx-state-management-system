@@ -3,6 +3,7 @@ import {User} from "../../../common/models/user";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {UserService} from "../../../services/user.service";
+import {UserHandler} from "../../../core/handlers/user-handler";
 
 @Component({
   selector: 'app-add-update-user',
@@ -14,7 +15,7 @@ export class AddUpdateUserComponent implements OnInit{
 
   constructor(private dialogRef: MatDialogRef<AddUpdateUserComponent>,
               @Inject(MAT_DIALOG_DATA) public data: User,
-              private userService: UserService) {
+              private userHandler : UserHandler) {
   }
 
   ngOnInit(): void {
@@ -34,16 +35,12 @@ export class AddUpdateUserComponent implements OnInit{
 
   updateUser() {
     const updatedUser = {...this.data, ...this.userForm.value};
-    this.userService.updateUser(updatedUser).subscribe((res) => {
-      console.log(res);
-    });
+    this.userHandler.updateUser(updatedUser);
     this.dialogRef.close();
   }
 
   addUser() {
-    this.userService.addUser(this.userForm.value).subscribe((res) => {
-      console.log(res);
-    });
+    this.userHandler.addUser(this.userForm.value);
     this.dialogRef.close();
   }
 

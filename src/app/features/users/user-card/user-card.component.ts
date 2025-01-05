@@ -2,7 +2,7 @@ import {Component, Input} from '@angular/core';
 import {User} from "../../../common/models/user";
 import {AddUpdateUserComponent} from "../add-update-user/add-update-user.component";
 import {MatDialog} from "@angular/material/dialog";
-import {UserService} from "../../../services/user.service";
+import {UserHandler} from "../../../core/handlers/user-handler";
 
 @Component({
   selector: 'app-user-card',
@@ -12,7 +12,7 @@ import {UserService} from "../../../services/user.service";
 export class UserCardComponent {
   @Input() user!: User;
 
-  constructor(private dialog: MatDialog, private userService: UserService) {
+  constructor(private dialog: MatDialog, private userHandler:UserHandler) {
   }
 
   update() {
@@ -22,8 +22,6 @@ export class UserCardComponent {
   }
 
   delete() {
-    this.userService.deleteUser(this.user._id).subscribe((res) => {
-      console.log(res);
-    });
+    this.userHandler.deleteUser(this.user._id);
   }
 }

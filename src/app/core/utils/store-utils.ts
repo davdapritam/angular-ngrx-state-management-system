@@ -3,7 +3,7 @@ export class StoreUtils {
   static normalize(entityArray: Entity[]) {
     return entityArray.reduce((previousValue, currentValue) => {
       return {...previousValue, ...{[currentValue._id]: currentValue}};
-    })
+    }, {});
   }
 
   static unNormalize(entities: { [_id: string]: any }) {

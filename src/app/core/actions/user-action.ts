@@ -21,3 +21,21 @@ export class UserListSuccessAction{
 export class UserListErrorAction{
   readonly type = USER_LIST_ERROR;
 }
+
+export class UserAddAction {
+  readonly type = USER_ADD;
+
+  constructor(public payload?: { data: User }) {
+  }
+}
+
+export class UserUpdateAction {
+  readonly type = USER_UPDATE;
+  constructor(public payload?: { data: User }) {}
+}
+
+export class UserDeleteAction {
+  readonly type = USER_DELETE;
+  constructor(public payload? : {id : string}) {
+  }
+}
