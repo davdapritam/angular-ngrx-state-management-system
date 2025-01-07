@@ -1,7 +1,7 @@
-import {HttpClient} from "@angular/common/http";
-import {Observable, throwError} from "rxjs";
-import {catchError} from 'rxjs/operators';
-import {Injectable} from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { Observable, throwError } from "rxjs";
+import { catchError } from 'rxjs/operators';
+import { Injectable } from "@angular/core";
 
 @Injectable()
 export class HttpService {
@@ -12,26 +12,24 @@ export class HttpService {
   constructor(private http: HttpClient) { }
 
   get(url: string, params?: any): Observable<any> {
-    const data = {params}
+    const data = { params }
     return this.http.get(this.baseUrl + url, data).pipe(catchError(this.errorHandler.bind(this)));
   }
 
   post(url: string, body: any): Observable<any> {
-    const headers = this.getAuthHeader();
     return this.http.post(this.baseUrl + url, body).pipe(catchError(this.errorHandler.bind(this)));
-    // return this.http.post(this.baseUrl + url, body, { headers }).pipe(catchError(this.errorHandler.bind(this)));
   }
 
   // PUT method
   put(url: string, body: any): Observable<any> {
-    const headers = this.getAuthHeader();
-    return this.http.put(this.baseUrl + url, body, { headers }).pipe(catchError(this.errorHandler.bind(this)));
+    // const headers = this.getAuthHeader();
+    return this.http.put(this.baseUrl + url, body).pipe(catchError(this.errorHandler.bind(this)));
+    // return this.http.put(this.baseUrl + url, body, { headers }).pipe(catchError(this.errorHandler.bind(this)));
   }
 
   // DELETE method
   delete(url: string): Observable<any> {
-    const headers = this.getAuthHeader();
-    return this.http.delete(this.baseUrl + url, { headers }).pipe(catchError(this.errorHandler.bind(this)));
+    return this.http.delete(this.baseUrl + url).pipe(catchError(this.errorHandler.bind(this)));
   }
 
 
@@ -49,13 +47,13 @@ export class HttpService {
       message = error[key];
     }
 
-    if (key === "isTrusted"){
+    if (key === "isTrusted") {
       message = "Internet Connection Failed";
-    }else{
+    } else {
       message = key + " : " + error[key];
     }
 
-    return throwError({messages: message, error});
+    return throwError({ messages: message, error });
   }
 
   private getAuthHeader(): { [header: string]: string | string[]; } {
