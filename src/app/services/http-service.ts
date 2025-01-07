@@ -56,10 +56,10 @@ export class HttpService {
     return throwError({ messages: message, error });
   }
 
-  private getAuthHeader(): { [header: string]: string | string[]; } {
-    return {
-      Authorization: `Bearer ${localStorage.getItem(this.AUTH_TOKEN)}`
-    };
-  }
+  // private getAuthHeader(): { [header: string]: string | string[]; } {
+  //   return {
+  //     Authorization: `Bearer ${localStorage.getItem(this.AUTH_TOKEN)}`
+  //   };
+  // }
 
 }
