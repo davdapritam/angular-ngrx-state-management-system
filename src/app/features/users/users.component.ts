@@ -1,11 +1,9 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {User} from "../../common/models/user";
-import {AddUpdateUserComponent} from "./add-update-user/add-update-user.component";
-import {MatDialog} from "@angular/material/dialog";
-import {Store} from "@ngrx/store";
-import {RootReducerState} from "../../core/reducers";
-import {UserHandler} from "../../core/handlers/user-handler";
-import {takeWhile} from "rxjs/operators";
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { User } from "../../common/models/user";
+import { AddUpdateUserComponent } from "./add-update-user/add-update-user.component";
+import { MatDialog } from "@angular/material/dialog";
+import { UserHandler } from "../../core/handlers/user-handler";
+import { takeWhile } from "rxjs/operators";
 
 @Component({
   selector: 'app-users',
@@ -18,7 +16,7 @@ export class UsersComponent implements OnInit, OnDestroy {
   error = false;
   isAlive = true;
 
-  constructor(private dialog: MatDialog, private userHandler: UserHandler, private store: Store<RootReducerState>) {
+  constructor(private dialog: MatDialog, private userHandler: UserHandler) {
   }
 
   ngOnInit() {
@@ -29,7 +27,7 @@ export class UsersComponent implements OnInit, OnDestroy {
     this.isAlive = false;
   }
 
-  fetchData(){
+  fetchData() {
 
     const observer$ = this.userHandler.getUserList();
 

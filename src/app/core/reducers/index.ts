@@ -1,5 +1,5 @@
 import * as fromUser from "./user-reducer";
-import {ActionReducerMap, createSelector} from "@ngrx/store";
+import { ActionReducerMap, createSelector } from "@ngrx/store";
 
 export interface RootReducerState {
   users: fromUser.UserReducerState;
