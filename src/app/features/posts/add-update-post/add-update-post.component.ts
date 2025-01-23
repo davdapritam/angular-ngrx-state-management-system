@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Post } from 'src/app/common/models/post';
+import { PostHandler } from 'src/app/core/handlers/post-handler';
 
 @Component({
   selector: 'app-add-update-post',
@@ -12,7 +13,7 @@ export class AddUpdatePostComponent implements OnInit {
   postForm!: FormGroup;
 
   constructor(private dialogRef: MatDialogRef<AddUpdatePostComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Post) {
+    @Inject(MAT_DIALOG_DATA) public data: Post, private postHandler: PostHandler) {
   }
 
   ngOnInit(): void {
@@ -31,13 +32,12 @@ export class AddUpdatePostComponent implements OnInit {
   }
 
   updatePost() {
-    const updatedPost = { ...this.data, ...this.postForm.value };
-    // this.userHandler.updateUser(updatedUser);
+    // const updatedPost = { ...this.data, ...this.postForm.value };
     this.dialogRef.close();
   }
 
   addPost() {
-    // this.userHandler.addUser(this.userForm.value);
+    this.postHandler.addPost(this.postForm.value);
     this.dialogRef.close();
   }
 

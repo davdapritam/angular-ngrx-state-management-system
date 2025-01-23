@@ -15,7 +15,7 @@ router.post('/', async (req, res) => {
             description
         })
 
-        if (postExists) {
+        if (postExists.length > 0) {
             return res.status(203).json({
                 statusCode: 203,
                 message: "Record Already Exists!"

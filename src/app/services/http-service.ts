@@ -2,6 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Observable, throwError } from "rxjs";
 import { catchError } from 'rxjs/operators';
 import { Injectable } from "@angular/core";
+import Swal from "sweetalert2";
 
 @Injectable()
 export class HttpService {
@@ -32,7 +33,6 @@ export class HttpService {
     return this.http.delete(this.baseUrl + url).pipe(catchError(this.errorHandler.bind(this)));
   }
 
-
   private errorHandler(response: any) {
 
     console.log("ERROR HANDLER", response);
@@ -52,6 +52,18 @@ export class HttpService {
     } else {
       message = key + " : " + error[key];
     }
+
+    console.log("message", message);
+
+    Swal.fire({
+      icon: 'error',
+      title: "Internet Error",
+      text: message,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 2000,
+      toast: true
+    });
 
     return throwError({ messages: message, error });
   }

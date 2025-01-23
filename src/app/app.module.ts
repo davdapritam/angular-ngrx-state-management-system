@@ -28,6 +28,7 @@ import { UserHandler } from "./core/handlers/user-handler";
 import { AddUpdatePostComponent } from './features/posts/add-update-post/add-update-post.component';
 import { PostCardComponent } from './features/posts/post-card/post-card.component';
 import { PostListComponent } from './features/posts/post-list/post-list.component';
+import { PostHandler } from './core/handlers/post-handler';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,7 @@ import { PostListComponent } from './features/posts/post-list/post-list.componen
     FormsModule,
     StoreModule.forRoot(rootReducer),
   ],
-  providers: [HttpService, UserHandler],
+  providers: [HttpService, UserHandler, PostHandler],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
