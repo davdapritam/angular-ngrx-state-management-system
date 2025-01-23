@@ -1,17 +1,17 @@
-import {Injectable} from '@angular/core';
-import {map, Observable} from 'rxjs';
-import {User} from '../common/models/user';
-import {HttpService} from "./http-service";
+import { Injectable } from '@angular/core';
+import { map, Observable } from 'rxjs';
+import { User } from '../common/models/user';
+import { HttpService } from "./http-service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(private http: HttpService) {}
+  constructor(private http: HttpService) { }
 
   // Fetch all users
-  getUsers() : Observable<User[]>{
+  getUsers(): Observable<User[]> {
     return this.http.get('/api/users').pipe(map(data => data.data as User[]));
   }
 

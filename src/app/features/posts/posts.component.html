@@ -1,1 +1,6 @@
-<p>posts works!</p>
+<div class="users">
+    <app-post-list *ngIf="!loading && !error" [posts]="posts"></app-post-list>
+    <!-- <mat-spinner *ngIf="loading"></mat-spinner> -->
+    <!--  <youtube-error (reload)="this.tryAgain()" *ngIf="this.error && !loading"></youtube-error>-->
+    <button (click)="addPost()" *ngIf="!loading && !error" color="primary" mat-raised-button>Add Post</button>
+</div>

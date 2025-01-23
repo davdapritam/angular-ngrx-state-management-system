@@ -1,30 +1,33 @@
-import {NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
-import {AppRoutingModule} from './app-routing.module';
-import {AppComponent} from './app.component';
-import {PostsComponent} from './features/posts/posts.component';
-import {UsersComponent} from './features/users/users.component';
-import {CommonModule} from "@angular/common";
-import {HeaderComponent} from './common/components/header/header.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatToolbarModule} from "@angular/material/toolbar";
-import {MatButtonModule} from "@angular/material/button";
-import {MatInputModule} from "@angular/material/input";
-import {MatDialogModule} from "@angular/material/dialog";
-import {MatCardModule} from "@angular/material/card";
-import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
-import {MatIconModule} from "@angular/material/icon";
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {UserListComponent} from './features/users/user-list/user-list.component';
-import {UserCardComponent} from './features/users/user-card/user-card.component';
-import {HttpClientModule} from "@angular/common/http";
-import {AddUpdateUserComponent} from './features/users/add-update-user/add-update-user.component';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {StoreModule} from '@ngrx/store';
-import {HttpService} from "./services/http-service";
-import {rootReducer} from "./core/reducers";
-import {UserHandler} from "./core/handlers/user-handler";
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { PostsComponent } from './features/posts/posts.component';
+import { UsersComponent } from './features/users/users.component';
+import { CommonModule } from "@angular/common";
+import { HeaderComponent } from './common/components/header/header.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatButtonModule } from "@angular/material/button";
+import { MatInputModule } from "@angular/material/input";
+import { MatDialogModule } from "@angular/material/dialog";
+import { MatCardModule } from "@angular/material/card";
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import { MatIconModule } from "@angular/material/icon";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { UserListComponent } from './features/users/user-list/user-list.component';
+import { UserCardComponent } from './features/users/user-card/user-card.component';
+import { HttpClientModule } from "@angular/common/http";
+import { AddUpdateUserComponent } from './features/users/add-update-user/add-update-user.component';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { StoreModule } from '@ngrx/store';
+import { HttpService } from "./services/http-service";
+import { rootReducer } from "./core/reducers";
+import { UserHandler } from "./core/handlers/user-handler";
+import { AddUpdatePostComponent } from './features/posts/add-update-post/add-update-post.component';
+import { PostCardComponent } from './features/posts/post-card/post-card.component';
+import { PostListComponent } from './features/posts/post-list/post-list.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,10 @@ import {UserHandler} from "./core/handlers/user-handler";
     HeaderComponent,
     UserListComponent,
     UserCardComponent,
-    AddUpdateUserComponent
+    AddUpdateUserComponent,
+    AddUpdatePostComponent,
+    PostCardComponent,
+    PostListComponent
   ],
   imports: [
     CommonModule,
