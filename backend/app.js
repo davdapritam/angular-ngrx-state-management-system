@@ -8,13 +8,16 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 const PORT = 3000;
-const MONGO_URI = 'mongodb://127.0.0.1:27017/ngrx'; // Update with your MongoDB URI
+const MONGO_URI = 'mongodb://127.0.0.1:27017/ngrx';
+
+const postRoutes = require('./routes/post');
 
 // Middleware
 app.use(bodyParser.json());
 
 // Routes
 app.use('/api', userRoutes);
+app.use('/post', postRoutes);
 
 // Database Connection
 mongoose.connect(MONGO_URI)
